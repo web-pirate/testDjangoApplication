@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Company Registration Page</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="cname">Company Name</label>
+    <input type="text" name="cname" id="cname"><br>
+    <label for="clogo">Company Logo</label>
+    <input type="file" name="clogo" id="clogo"><br>
+    <label for="csize">Company Size</label>
+    <select name="csize" id="csize">
+        <option value="10-100">Small</option>
+        <option value="101-500">Medium</option>
+        <option value="501-1000">Large</option>
+        <option value="1000+">Huge</option>
+    </select>
+    <input type="Submit" value="Register">
+
+</form>
+
+{% endblock content %}

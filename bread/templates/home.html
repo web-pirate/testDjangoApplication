@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<form action="{% url 'add' %}" method="post">
+  {% csrf_token %}
+  <label for="val1">Num1</label>
+  <input type="text" name="val1" />+
+  <label for="val2">Num2</label>
+  <input type="text" name="val2" />
+  <input type="submit" />
+</form>
+<br />
+<br />
+
+{% for i in company %}
+<img class="img" src="{% static '{{i.company_logo}}' %}" alt="" /><br />
+<label for="img">Company Name</label>
+<h3>{{i.company_name}}</h3>
+<label for="sal">Company Size</label>
+<h3>{{i.company_size}}</h3>
+<label for="sal">Company Created At</label>
+<h3>{{i.company_created_at}}</h3>
+{% endfor %}
+
+<!-- <img class="img" src="{% static 'jou.png' %}" alt=""><br>
+<label for="img">Name</label>
+<h3>{{data.name}}</h3>
+<label for="sal">Salary</label>
+<h3>{{data.salary}}</h3> -->
+{% endblock %}
